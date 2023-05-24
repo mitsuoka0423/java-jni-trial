@@ -1,6 +1,9 @@
-build:
+build-java:
 	javac HelloJNI.java
 	javah HelloJNI
 
-run:
+build-c:
+	gcc -shared -fpic -o libhello.so HelloJNI.c
+
+run: build-java build-c
 	java HelloJNI

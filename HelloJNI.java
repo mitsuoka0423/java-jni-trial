@@ -1,6 +1,5 @@
 public class HelloJNI {
     static {
-      System.setProperty("java.library.path", System.getProperty("user.dir"));
       System.loadLibrary("hello");
     }
 
