@@ -1,2 +1,2 @@
-HelloJNI.class
-HelloJNI.h
+*.so
+*.class

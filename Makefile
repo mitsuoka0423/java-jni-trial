@@ -1,9 +1,11 @@
+run: clean build-c build-java
+	java -Djava.library.path=. ExecuteCFromJava
+
 build-java:
-	javac HelloJNI.java
-	javah HelloJNI
+	javac ExecuteCFromJava.java
 
 build-c:
-	gcc -shared -fpic -o libhello.so HelloJNI.c
+	gcc -I${JAVA_HOME}/include -I${JAVA_HOME}/include/darwin -shared -o libhello.dylib -arch x86_64 hello.c
 
-run: build-java build-c
-	java HelloJNI
+clean:
+	rm -rf *.so *.class
